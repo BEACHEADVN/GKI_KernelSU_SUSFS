@@ -1,10 +1,10 @@
-name: Setup Wild KSU
-description: Download and configure Wild KSU with version tracking
+name: Setup Ayaka
+description: Download and configure Ayaka with version tracking
 
 runs:
   using: composite
   steps:
-    - name: Download Wild KSU
+    - name: Download Ayaka
       shell: bash
       working-directory: ${{ github.workspace }}/kernel
       run: |
@@ -13,7 +13,7 @@ runs:
         COMMITS_JSON="${{ github.workspace }}/.github/config/commits.json"
         KSU_SETUP_COMMIT=$(jq -er '.kernelsu.dev' "$COMMITS_JSON")
 
-        curl -LSs "https://raw.githubusercontent.com/KernelSU-Next/KernelSU-Next/dev/kernel/setup.sh" | bash -s "$KSU_SETUP_COMMIT"
+        curl -LSs "https://raw.githubusercontent.com/BEACHEADVN/Ayaka/dev/kernel/setup.sh" | bash -s "$KSU_SETUP_COMMIT"
         
         cd KernelSU-Next/kernel
         
