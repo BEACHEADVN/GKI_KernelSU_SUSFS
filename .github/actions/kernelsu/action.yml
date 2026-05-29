@@ -15,7 +15,7 @@ runs:
 
         curl -LSs "https://raw.githubusercontent.com/BEACHEADVN/Ayaka/dev/kernel/setup.sh" | bash -s "$KSU_SETUP_COMMIT"
         
-        cd KernelSU-Next/kernel
+        cd Ayaka/kernel
         
         COMMITS_COUNT=$(/usr/bin/git rev-list --count HEAD)
         BASE_VERSION=30000
@@ -38,7 +38,7 @@ runs:
     - name: Extract KSU Version Info
       id: ksu-version
       shell: bash
-      working-directory: ${{ github.workspace }}/kernel/KernelSU-Next
+      working-directory: ${{ github.workspace }}/kernel/Ayaka
       run: |
         # Extract and export KSU version info
         KSU_GIT_VERSION=$(git rev-list --count HEAD 2>/dev/null)
