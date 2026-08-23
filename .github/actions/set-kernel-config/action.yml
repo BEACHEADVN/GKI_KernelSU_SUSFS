@@ -25,7 +25,8 @@ runs:
 
       apply_line() {
         local line="$1"
-        line="$(echo "$line" | xargs)"
+        # Xóa khoảng trắng thừa đầu và cuối dòng bằng sed để tránh lỗi với dấu nháy '
+        line="$(echo "$line" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
 
         # skip empty/comments
         [[ -z "$line" || "$line" == \#* ]] && return
